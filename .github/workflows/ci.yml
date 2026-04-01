@@ -23,7 +23,6 @@ jobs:
         run: |
           dotnet nuget remove source github || true
           dotnet nuget add source "https://nuget.pkg.github.com/ARIA-1M/index.json" --name github --username ARIA-1M --password ${{ secrets.PACK_TOKENS }} --store-password-in-clear-text 
-          dotnet nuget add source "https://nuget.pkg.github.com/Julia-Mamsheva/index.json" --name github --username Julia-Mamsheva --password ${{ secrets.PACKAGES_TOKEN }} --store-password-in-clear-text
       - name: Restore dependencies
         run: dotnet restore
 
