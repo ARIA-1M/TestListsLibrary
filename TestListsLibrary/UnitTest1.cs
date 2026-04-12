@@ -1,4 +1,4 @@
-﻿using static WorkingListsLibrary.ClassLibrary<string>;
+﻿using WorkingListsLibrary;
 
 namespace TestListsLibrary
 {
@@ -43,9 +43,10 @@ namespace TestListsLibrary
             string input = "Ма";
             var stringReader = new StringReader(input);
             Console.SetIn(stringReader);
-            var exception = Record.Exception(() => ListHelper.SearchList(list));
-            Assert.Null(exception);
-
+            var result = ListHelper.SearchList(list);
+            Assert.Equal(2, result.Count);
+            Assert.Contains("Мария", result);
+            Assert.Contains("Маша", result);
         }
 
         [Fact]
